@@ -51,7 +51,7 @@ function App() {
   const { fullBox, cart, userInfo } = state;
 
   // axios.defaults.baseURL = 'http://localhost:4000/';
-  axios.defaults.baseURL = 'https://team2furniturestore.onrender.com/';
+  axios.defaults.baseURL = 'https://franklynsfurniture.netlify.app/';
 
 
   const signoutHandler = () => {
@@ -143,25 +143,25 @@ products.forEach((product) => {
         className={
           sidebarIsOpen
             ? fullBox
-              ? 'site-container active-cont d-flex flex-column'
-              : 'site-container active-cont d-flex flex-column'
+              ? "site-container active-cont d-flex flex-column"
+              : "site-container active-cont d-flex flex-column"
             : fullBox
-            ? 'site-container  d-flex flex-column full-box'
-            : 'site-container  d-flex flex-column'
+            ? "site-container  d-flex flex-column full-box"
+            : "site-container  d-flex flex-column"
         }
       >
-        <ToastContainer position='bottom-center' limit={1} />
+        <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar className='navstyle' expand='lg'>
+          <Navbar className="navstyle" expand="lg">
             <Container>
               <Button onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
-                <i className=' fas fa-bars'></i>
+                <i className=" fas fa-bars"></i>
               </Button>
 
-              <LinkContainer style={{ color: 'white' }} to='/'>
+              <LinkContainer style={{ color: "white" }} to="/">
                 <Navbar.Brand> Chiemela Furniture Store</Navbar.Brand>
               </LinkContainer>
-              <LinkContainer style={{ color: 'white' }} to='/'>
+              <LinkContainer style={{ color: "white" }} to="/">
                 <Navbar.Brand>
                   {/* {dark ? (
             
@@ -171,72 +171,61 @@ products.forEach((product) => {
           )} */}
                 </Navbar.Brand>
               </LinkContainer>
-              <Navbar.Toggle aria-controls='basic-navbar-nav' />
-              <Navbar.Collapse id='basic-navbar-nav'>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
                 {/* <SearchBox /> */}
-                <Nav className='me-auto  w-100   justify-content-end'>
-                  {/* {
-                    userInfo && userInfo.isAdmin === "false" &&
-
-                <Link
-                    style={{ color: 'white' }}
-                    to='/requestadmin'
-                    className='nav-link'
-                  >
-                    Become an Admin
-                   
-                  </Link>
-                  } */}
+                <Nav className="me-auto  w-100   justify-content-end">
+                
                   <Link
-                    style={{ color: 'white' }}
-                    to='/cart'
-                    className='nav-link'
+                    style={{ color: "white" }}
+                    to="/cart"
+                    className="nav-link"
                   >
                     Cart
                     {cart.cartItems.length > 0 && (
-                      <Badge pill bg='danger'>
+                      <Badge pill bg="danger">
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                       </Badge>
                     )}
                   </Link>
-                
+
                   {userInfo ? (
-                    <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                      <LinkContainer to='/profile'>
+                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                      <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>
-                      <LinkContainer to='/orderhistory'>
+                      <LinkContainer to="/orderhistory">
                         <NavDropdown.Item>My Orders</NavDropdown.Item>
                       </LinkContainer>
                       <NavDropdown.Divider />
                       <Link
-                        className='dropdown-item'
-                        to='#signout'
+                        className="dropdown-item"
+                        to="#signout"
                         onClick={signoutHandler}
                       >
                         Sign Out
                       </Link>
                     </NavDropdown>
                   ) : (
-                    <Link className='nav-link' to='/signin'>
+                    <Link className="nav-link" to="/signin">
                       Sign In
                     </Link>
                   )}
-                  {userInfo && userInfo.isAdmin === 'true' && (
-                    <NavDropdown title='Admin' id='admin-nav-dropdown'>
-                      <LinkContainer to='/admin/dashboard'>
+                  {userInfo && userInfo.isAdmin === "true" && (
+                    <NavDropdown title="Admin" id="admin-nav-dropdown">
+                      <LinkContainer to="/admin/dashboard">
                         <NavDropdown.Item>Reports</NavDropdown.Item>
                       </LinkContainer>
-                      <LinkContainer to='/admin/products'>
+                      <LinkContainer to="/admin/products">
                         <NavDropdown.Item>Products</NavDropdown.Item>
                       </LinkContainer>
-                      <LinkContainer to='/admin/orders'>
+                      <LinkContainer to="/admin/orders">
                         <NavDropdown.Item>Orders</NavDropdown.Item>
                       </LinkContainer>
-                      <LinkContainer to='/admin/users'>
+                      <LinkContainer to="/admin/users">
                         <NavDropdown.Item>Users</NavDropdown.Item>
                       </LinkContainer>
-                      <LinkContainer to='/admin/refunds'>
+                      <LinkContainer to="/admin/refunds">
                         <NavDropdown.Item>Refund Requests</NavDropdown.Item>
                       </LinkContainer>
                     </NavDropdown>
@@ -246,107 +235,93 @@ products.forEach((product) => {
             </Container>
           </Navbar>
         </header>
-       
+
         <div
           className={
             sidebarIsOpen
-              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column '
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+              ? "active-nav side-navbar d-flex justify-content-between flex-wrap flex-column "
+              : "side-navbar d-flex justify-content-between flex-wrap flex-column"
           }
         >
-          <Nav className=' flex-column text-white w-100 p-2'>
+          <Nav className=" flex-column text-white w-100 p-2">
             <Nav.Item>
-              <strong style={{color: "black"}}>Categories</strong>
+              <strong style={{ color: "black" }}>Categories</strong>
             </Nav.Item>
-            <div style={{ border: '2px solid rgb(185, 56, 14)', borderRadius: '10px', marginBottom: "1rem",  }}>   
-            
-            <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
-  <Nav className="flex-column">
-            {categories.map((category) => (
-              <Nav.Item key={category}>
-                <LinkContainer
-                  to={{ pathname: '/search', search: `category=${category}` }}
-      
-                >
-                  <Nav.Link className='namestyle '>{category}</Nav.Link>
-                </LinkContainer>
-              </Nav.Item>
-            ))}
-            
-            </Nav>
-</div>
-</div>
+            <div
+              style={{
+                border: "2px solid rgb(185, 56, 14)",
+                borderRadius: "10px",
+                marginBottom: "1rem",
+              }}
+            >
+              <div style={{ maxHeight: "200px", overflowY: "auto" }}>
+                <Nav className="flex-column">
+                  {categories.map((category) => (
+                    <Nav.Item key={category}>
+                      <LinkContainer
+                        to={{
+                          pathname: "/search",
+                          search: `category=${category}`,
+                        }}
+                      >
+                        <Nav.Link className="namestyle ">{category}</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                  ))}
+                </Nav>
+              </div>
+            </div>
 
             <Nav.Item>
-              <strong style={{color: "black"}}>Brands</strong>
+              <strong style={{ color: "black" }}>Brands</strong>
             </Nav.Item>
-            <div style={{ border: '2px solid rgb(185, 56, 14)', borderRadius: '10px', marginBottom: "1rem", }}>    
-<div style={{ maxHeight: '300px', overflowY: 'auto' }}>
-  <Nav className="flex-column">
-    {brands.map((brand) => (
-      <Nav.Item key={brand} style={{ width: '100%' }}>
-        <LinkContainer
-          to={{ pathname: '/bsearch', search: `brand=${brand}` }}
-          // onClick={() => setSidebarIsOpen(false)}
-        >
-          <Nav.Link className='namestyle'>{brand}</Nav.Link>
-        </LinkContainer>
-      </Nav.Item>
-    ))}
-  </Nav>
-</div>
-</div>
-
-{/* <Nav.Item>
-              <strong style={{color: "black"}}>Price</strong>
-            </Nav.Item> */}
-{/*         
-<div style={{ maxHeight: '300px', overflowY: 'auto' }}>
-  <Nav className="flex-column">
-    {starRatings.map((starRating) => (
-      <Nav.Item key={starRating} style={{ width: '100%' }}>
-        <LinkContainer
-          to={{ pathname: '/rsearch', search: `starRating=${starRating}` }}
-          // onClick={() => setSidebarIsOpen(false)}
-        >
-          <Nav.Link className='namestyle'>{starRating}</Nav.Link>
-        </LinkContainer>
-      </Nav.Item>
-    ))}
-  </Nav>
-</div>
- */}
-
- 
- 
-
-
+            <div
+              style={{
+                border: "2px solid rgb(185, 56, 14)",
+                borderRadius: "10px",
+                marginBottom: "1rem",
+              }}
+            >
+              <div style={{ maxHeight: "300px", overflowY: "auto" }}>
+                <Nav className="flex-column">
+                  {brands.map((brand) => (
+                    <Nav.Item key={brand} style={{ width: "100%" }}>
+                      <LinkContainer
+                        to={{ pathname: "/bsearch", search: `brand=${brand}` }}
+                        // onClick={() => setSidebarIsOpen(false)}
+                      >
+                        <Nav.Link className="namestyle">{brand}</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                  ))}
+                </Nav>
+              </div>
+            </div>
           </Nav>
         </div>
+
         <main>
-          
-          <Container className='mt-3'>
+          <Container className="mt-3">
             <Routes>
-              <Route path='/product/:slug' element={<ProductScreen />} />
-              <Route path='/cart' element={<CartScreen />} />
-              <Route path='/search' element={<SearchScreen />} />
-              <Route path='/bsearch' element={<BSearchScreen />} />
-              <Route path='/signin' element={<SigninScreen />} />
-              <Route path='/signup' element={<SignupScreen />} />
-              <Route path='/requestadmin' element={<RequestAdmin />} />
-              
+              <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
+              <Route path="/bsearch" element={<BSearchScreen />} />
+              <Route path="/signin" element={<SigninScreen />} />
+              <Route path="/signup" element={<SignupScreen />} />
+              <Route path="/requestadmin" element={<RequestAdmin />} />
 
               <Route
-                path='/forget-password'
+                path="/forget-password"
                 element={<ForgetPasswordScreen />}
               />
               <Route
-                path='/reset-password/:token'
+                path="/reset-password/:token"
                 element={<ResetPasswordScreen />}
               />
 
               <Route
-                path='/profile'
+                path="/profile"
                 element={
                   <ProtectedRoute>
                     <ProfileScreen />
@@ -354,24 +329,24 @@ products.forEach((product) => {
                 }
               />
               <Route
-                path='/map'
+                path="/map"
                 element={
                   <ProtectedRoute>
                     <MapScreen />
                   </ProtectedRoute>
                 }
               />
-              <Route path='/placeorder' element={<PlaceOrderScreen />} />
+              <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route
-                path='/order/:id'
+                path="/order/:id"
                 element={
                   <ProtectedRoute>
                     <OrderScreen />
                   </ProtectedRoute>
                 }
               ></Route>
-               <Route
-                path='/refund/:id'
+              <Route
+                path="/refund/:id"
                 element={
                   <ProtectedRoute>
                     <RefundScreen />
@@ -379,7 +354,7 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/orderhistory'
+                path="/orderhistory"
                 element={
                   <ProtectedRoute>
                     <OrderHistoryScreen />
@@ -387,13 +362,13 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/shipping'
+                path="/shipping"
                 element={<ShippingAddressScreen />}
               ></Route>
-              <Route path='/payment' element={<PaymentMethodScreen />}></Route>
+              <Route path="/payment" element={<PaymentMethodScreen />}></Route>
               {/* Admin Routes */}
               <Route
-                path='/admin/dashboard'
+                path="/admin/dashboard"
                 element={
                   <AdminRoute>
                     <DashboardScreen />
@@ -401,7 +376,7 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/admin/orders'
+                path="/admin/orders"
                 element={
                   <AdminRoute>
                     <OrderListScreen />
@@ -409,7 +384,7 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/admin/users'
+                path="/admin/users"
                 element={
                   <AdminRoute>
                     <UserListScreen />
@@ -417,15 +392,15 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/admin/products'
+                path="/admin/products"
                 element={
                   <AdminRoute>
                     <ProductListScreen />
                   </AdminRoute>
                 }
               ></Route>
-               <Route
-                path='/admin/refunds'
+              <Route
+                path="/admin/refunds"
                 element={
                   <AdminRoute>
                     <RefundListScreen />
@@ -433,23 +408,23 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/admin/product/:id'
+                path="/admin/product/:id"
                 element={
                   <AdminRoute>
                     <ProductEditScreen />
                   </AdminRoute>
                 }
               ></Route>
-            <Route
-                path='/admin/restock'
+              <Route
+                path="/admin/restock"
                 element={
                   <AdminRoute>
                     <Restock />
                   </AdminRoute>
                 }
-              ></Route> 
+              ></Route>
               <Route
-                path='/admin/product/newproduct'
+                path="/admin/product/newproduct"
                 element={
                   <AdminRoute>
                     <ProductCreateScreen />
@@ -457,7 +432,7 @@ products.forEach((product) => {
                 }
               ></Route>
               <Route
-                path='/admin/user/:id'
+                path="/admin/user/:id"
                 element={
                   <AdminRoute>
                     <UserEditScreen />
@@ -465,12 +440,12 @@ products.forEach((product) => {
                 }
               ></Route>
 
-              <Route path='/' element={<HomeScreen />} />
+              <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
         </main>
         <footer>
-          <div className='text-center'>All rights reserved</div>
+          <div className="text-center">All rights reserved</div>
         </footer>
       </div>
     </BrowserRouter>
