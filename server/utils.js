@@ -12,9 +12,9 @@ export const errorHandler = (status, message) => {
 export const baseUrl = () =>
   process.env.BASE_URL
     ? process.env.BASE_URL
-    : process.env.NODE_ENV !== 'production'
+    : process.env.NODE_ENV !== 'produdction'
     ? 'http://localhost:3000'
-    : 'https://chiemelafurniturestore.netlify.app';
+    : 'https://franklynsfurniture.netlify.app';
 
 
 export const generateToken = (user) => {

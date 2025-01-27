@@ -154,7 +154,7 @@ try {
 
     const deleteQuery = 'DELETE FROM orders WHERE _id = ?';
     await pool.query(deleteQuery, [customerOrderRefund]);
-    const url = "https://team2furniturestore.netlify.app"
+    const url = "https://franklynsfurniture.netlify.app"
     await sendApproval(customerEmail, "Refund Approved!😃", url, customerName )
     res.send({ message: 'Product Updated' });
     
@@ -190,7 +190,7 @@ orderRouter.post(
       refundAdmin,
       refundId
     ]);
-    const url = "https://team2furniturestore.netlify.app"
+    const url = "https://franklynsfurniture.netlify.app"
     await sendDenied(customerEmail, "Refund Denied😕", url, customerName )
 
     res.send({ message: 'Product Updated' });
@@ -250,7 +250,7 @@ orderRouter.post(
       console.error('Error updating countInStock:', err);
       res.status(500).send('Error updating countInStock');
     }
-    const url = "https://team2furniturestore.netlify.app/orderhistory"
+    const url = "https://franklynsfurniture.netlify.app/orderhistory"
     await sendEmail(req.user.email, "Order has been created📦", url, req.user.name, totalPrice, orderItems)
     res.status(201).send({
       orderItems: orderItems,
