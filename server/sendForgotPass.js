@@ -29,7 +29,7 @@ export const sendForgotPass = async (email, username, subject, url ) => {
       <html lang="en" >
       <head>
         <meta charset="UTF-8">
-        <title>Team2furnitureStore - Order Details</title>
+        <title>Franklyns furnitureStore - Order Details</title>
         
       
       </head>
@@ -38,7 +38,7 @@ export const sendForgotPass = async (email, username, subject, url ) => {
       <div style="font-family: Helvetica,Arial,sans-serif;min-width:800px;overflow:auto;line-height:2">
         <div style="margin:5px ;width:60%;padding:20px 0">
           <div style="border-bottom:1px solid #eee">
-            <a href="" style="font-size:1.4em;color: orangered;text-decoration:none;font-weight:600">Team2FurnitureStore</a>
+            <a href="" style="font-size:1.4em;color: orangered;text-decoration:none;font-weight:600">Franklyns FurnitureStore</a>
           </div>
           <p style="font-size:2em">Hi, ${username}</p>
           <p style="font-size:1.2em">The password reset link below expires in 10 minutes </p>
@@ -47,7 +47,7 @@ export const sendForgotPass = async (email, username, subject, url ) => {
       
 
 
-          <p style="font-size:0.9em;">Sincerely,<br />Team2FurnitureStore Crew</p>
+          <p style="font-size:0.9em;">Sincerely,<br />Franklyns FurnitureStore Crew</p>
           <hr style="border:none;border-top:1px solid #eee" />
           <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
             

@@ -272,7 +272,7 @@ userRouter.post(
   
       const user = await pool.query(query, [name, email, username, password, birthday]);
 
-      const url = "https://team2furniturestore.netlify.app"
+      const url = "https://franklynsfurniture.netlify.app"
       await sendSignUpEmail(email, `Welcome ${name}!`, url, name, )
      
       res.status(201).send({ message: 'Account created! Now sign in' });

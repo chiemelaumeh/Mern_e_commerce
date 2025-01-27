@@ -29,7 +29,7 @@ export const sendDenied = async (email, subject, url, user, totalPrice) => {
       <html lang="en" >
       <head>
         <meta charset="UTF-8">
-        <title>Team2furnitureStore - Refund Decision</title>
+        <title>Franklyns furnitureStore - Refund Decision</title>
         
       
       </head>
@@ -45,7 +45,7 @@ export const sendDenied = async (email, subject, url, user, totalPrice) => {
       
 
 
-          <p style="font-size:0.9em;">Sincerely,<br />Team2FurnitureStore Crew</p>
+          <p style="font-size:0.9em;">Sincerely,<br />Franklyns FurnitureStore Crew</p>
           <hr style="border:none;border-top:1px solid #eee" />
           <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
             
