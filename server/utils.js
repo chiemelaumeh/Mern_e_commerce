@@ -12,7 +12,7 @@ export const errorHandler = (status, message) => {
 export const baseUrl = () =>
   process.env.BASE_URL
     ? process.env.BASE_URL
-    : process.env.NODE_ENV !== 'produdction'
+    : process.env.NODE_ENV !== 'production'
     ? 'http://localhost:3000'
     : 'https://franklynsfurniture.netlify.app';
 
